@@ -3,7 +3,7 @@ package com.twitter.poruke;
 /**
  * 
  * @author Dario
- *Klasa koja sadrzi naziv korisnika i poruku koju korisnik prosledjuje.
+ * Klasa koja sadrzi naziv korisnika i poruku koju korisnik prosledjuje.
  */
 public class TwitterPoruka {
 
@@ -39,7 +39,7 @@ public class TwitterPoruka {
 	 * @return String - poruka
 	 */
 	public String getPoruka() {
-	return "poruka";
+	return poruka;
 	}
 	/**
 	 * Metoda koja kao parametar prima poruku i postavlja

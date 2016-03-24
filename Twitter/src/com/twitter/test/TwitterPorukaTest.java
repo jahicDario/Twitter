@@ -28,12 +28,23 @@ public class TwitterPorukaTest {
 		TwitterPoruka tp = new TwitterPoruka();
 		tp.setKorisnik("");
 	}
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testSetPorukaStringDuziOd140() {
+		TwitterPoruka tp = new TwitterPoruka();
+		tp.setPoruka("ovde se nalazi string koji je duzi od 140 karaktera...");
+	}
+	@Test (expected = java.lang.RuntimeException.class)
+	public void testSetPorukaNull() {
+		TwitterPoruka tp = new TwitterPoruka();
+		String k = null;
+		tp.setPoruka(k);
+	}
 	@Test
 	public void testToString() {
 		TwitterPoruka tp = new TwitterPoruka();
-//		String s = "KORISNIK:"+tp.getKorisnik()+ " PORUKA:"+tp.getPoruka();
-//		assertEquals(s, tp.toString());
-		assertTrue(tp.toString(), true);
+		String s = "KORISNIK:"+tp.getKorisnik()+ " PORUKA:"+tp.getPoruka();
+		assertEquals(s, tp.toString());
+		//Greska u getMetodi jer se ne vraca atribut poruka vec string "poruka".
 	}
 
 }
