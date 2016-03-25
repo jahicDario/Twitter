@@ -1,43 +1,54 @@
 package com.twitter;
+
 import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
 
 /**
  * 
- * @author Dario
- *Klasa Twitter koja sadrzi listu TwitterPoruka, i metode za unos poruka u listu,
- *vracanje liste, i niza poruka sa tagom.
+ * @author Dario Klasa Twitter koja sadrzi listu TwitterPoruka, i metode za unos
+ *         poruka u listu, vracanje liste, i niza poruka sa tagom.
  */
 public class Twitter {
 	/**
 	 * Lista poruka klase TwitterPoruka. (LinkedList)
 	 */
 	private LinkedList<TwitterPoruka> poruke = new LinkedList<TwitterPoruka>();
+
 	/**
 	 * Metoda koja vraca sve poruke.
+	 * 
 	 * @return LinkedList<TwitterPoruka> - poruke
 	 */
 	public LinkedList<TwitterPoruka> vratiSvePoruke() {
 		return poruke;
 	}
+
 	/**
-	 * Metoda koja sluzi za unos poruke u listu poruka. Poruka se unosi na kraj liste.
-	 * @param korisnik (String)
-	 * @param poruka (String)
+	 * Metoda koja sluzi za unos poruke u listu poruka. Poruka se unosi na kraj
+	 * liste.
+	 * 
+	 * @param korisnik
+	 *            (String)
+	 * @param poruka
+	 *            (String)
 	 * 
 	 */
 	public void unesi(String korisnik, String poruka) {
 		// Pravi se nova poruka i puni podacima.
 		TwitterPoruka tp = new TwitterPoruka();
-		tp.setKorisnik("korisnik");
+		tp.setKorisnik(korisnik);
 		tp.setPoruka(poruka);
 		// Poruka se unosi u listu na kraj
 		poruke.addLast(tp);
 	}
+
 	/**
 	 * Metoda koja vraca niz poruka koje sadrze tag u sebi.
-	 * @param maxBroj (int)
-	 * @param tag (String)
+	 * 
+	 * @param maxBroj
+	 *            (int)
+	 * @param tag
+	 *            (String)
 	 * @return rezultat (TwitterPoruka[])
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
@@ -55,13 +66,14 @@ public class Twitter {
 		// Ako se nadje neka takva, i ako nije prekoracen maxBroj
 		// ona se upisuje u niz. Ako je prekoracen maxBroj,pretraga
 		// se prekida.
-		for (int i = 0; i < poruke.size(); i++)
+		for (int i = 0; i < poruke.size(); i++) {
 			if (poruke.get(i).getPoruka().indexOf(tag) != -1)
 				if (brojac < maxBroj) {
-					rezultat[brojac + 1] = poruke.get(i);
+					rezultat[brojac] = poruke.get(i);//umesto brojac + 1
 					brojac++;
 				} else
 					break;
+		}
 		return rezultat;
 	}
 }

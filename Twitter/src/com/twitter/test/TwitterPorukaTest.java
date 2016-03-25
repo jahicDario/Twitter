@@ -32,6 +32,7 @@ public class TwitterPorukaTest {
 	public void testSetPorukaStringDuziOd140() {
 		TwitterPoruka tp = new TwitterPoruka();
 		tp.setPoruka("ovde se nalazi string koji je duzi od 140 karaktera...");
+		//javlja se greska jer je  metodi this.poruka.length sto se odnosi na globalnu promenjivu.
 	}
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetPorukaNull() {
