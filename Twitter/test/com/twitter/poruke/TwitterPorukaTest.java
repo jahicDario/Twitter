@@ -26,13 +26,16 @@ public class TwitterPorukaTest {
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetKorisnikPrazanString() {
 		TwitterPoruka tp = new TwitterPoruka();
-		tp.setKorisnik("");
+		tp.setKorisnik(new String(""));
 	}
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetPorukaStringDuziOd140() {
 		TwitterPoruka tp = new TwitterPoruka();
-		tp.setPoruka("ovde se nalazi string koji je duzi od 140 karaktera...");
-		//javlja se greska jer je  metodi this.poruka.length sto se odnosi na globalnu promenjivu.
+		tp.setPoruka("ovde se nalazi string koji je duzi od 140 karaktera.."
+				+ "asdasdasdasdadsadsaadasd ad asd sad asdsadasdadasdasdasdasd"
+				+ "ad asd sad as dasd sadasdsadsadsadasdsadasdsadasdsad asd asdas"
+				+ "dasd asda dasdsadasdasdasdasdasdasdasdsadsadsadsadsadasdsadasdsa"
+				+ "sadasdasdasdasdasdasdasdadasdasdasdsadasdsadsadsad.");
 	}
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetPorukaNull() {

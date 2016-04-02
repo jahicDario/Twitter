@@ -29,7 +29,7 @@ public class TwitterPoruka {
 	 * @throws runtimeException - kada se kao parametar prosledi null ili prazan string.
 	 */
 	public void setKorisnik(String korisnik) {
-	if (korisnik==null || korisnik == "")
+	if (korisnik==null || korisnik.isEmpty())
 	throw new RuntimeException(
 	"Ime korisnika mora biti uneto");
 	this.korisnik = korisnik;
@@ -50,8 +50,8 @@ public class TwitterPoruka {
 	 */
 	public void setPoruka(String poruka) {
 	if (poruka==null || poruka.length()>140)
-	throw new RuntimeException(
-	"Poruka mora biti uneta i mora imati najvise 140 znakova");
+	throw new RuntimeException("Poruka mora biti uneta i mora imati najvise 140 znakova");
+	
 	this.poruka = poruka;
 	}
 	/**

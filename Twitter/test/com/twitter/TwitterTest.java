@@ -30,9 +30,7 @@ public class TwitterTest {
 		t.unesi("Dario", "test");
 		t.unesi("Dario2", "test2");
 		
-		if(t.vratiSvePoruke().size() == 2){
-			assertTrue(true);
-		}
+		assertEquals(t.vratiSvePoruke().size(), 2);
 		
 	}
 	@Test
